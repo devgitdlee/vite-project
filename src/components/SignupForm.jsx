@@ -6,22 +6,22 @@ const SignupForm = () => {
   const [password, setPassword] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
   
-  // const handleSubmit = async (e) => {
-  //   e.preventDefault();
+  const handleSubmit = async (e) => {
+    e.preventDefault();
 
-  //   try {
-  //     await axios.post('/api/users/signup', {
-  //       email,
-  //       password,
-  //     });
+    try {
+      await axios.post('/api/users/signup', {
+        email,
+        password,
+      });
 
-  //     // 회원가입 성공 시 알림 및 로그인 페이지 이동
-  //     alert('회원가입 성공!');
-  //     window.location.href = '/login';
-  //   } catch (error) {
-  //     setErrorMessage(error.response.data.message);
-  //   }
-  // };
+      // 회원가입 성공 시 알림 및 로그인 페이지 이동
+      alert('회원가입 성공!');
+      window.location.href = '/login';
+    } catch (error) {
+      //setErrorMessage(error.response.data.message);
+    }
+  };
 
   return (
     <form onSubmit={handleSubmit}>
