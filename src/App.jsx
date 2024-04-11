@@ -6,9 +6,6 @@ import {BrowserRouter,Route,Routes,Link} from 'react-router-dom';
 import SignupForm from './components/SignupForm';
 import LoginForm from './components/LoginForm';
 
-
-
-
 function App() {
   const [count, setCount] = useState(0)
   const [menuList, setMenuList] = useState([]);
