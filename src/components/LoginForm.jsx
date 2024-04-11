@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
+const apiUrl = import.meta.env.VITE_API_URL;
+
 const LoginForm = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -10,13 +12,13 @@ const LoginForm = () => {
     e.preventDefault();
 
     try {
-      const response = await axios.post('/api/users/login', {
+      const response = await axios.post(apiUrl+'/api/users/login', {
         email,
         password,
       });
 
       // 로그인 성공 시 토큰 저장 및 페이지 이동
-      localStorage.setItem('token', response.data.token);
+      //localStorage.setItem('token', response.data.token);
       window.location.href = '/';
     } catch (error) {
       setErrorMessage(error.response.data.message);
