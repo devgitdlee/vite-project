@@ -1,6 +1,10 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
+const apiUrl = import.meta.env.VITE_API_URL;
+
+console.log(apiUrl)
+
 const SignupForm = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -10,7 +14,7 @@ const SignupForm = () => {
     e.preventDefault();
 
     try {
-      await axios.post('/api/users/signup', {
+      await axios.post(apiUrl+'/api/users/signup', {
         email,
         password,
       });
@@ -19,7 +23,7 @@ const SignupForm = () => {
       alert('회원가입 성공!');
       window.location.href = '/login';
     } catch (error) {
-      //setErrorMessage(error.response.data.message);
+      setErrorMessage(error.response.data.message);
     }
   };
 
