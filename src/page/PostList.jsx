@@ -8,7 +8,7 @@ function PostList({ posts }) {
       {posts.map(post => (
         <li key={post.id}>
           <h2>{post.title}</h2>
-          <p>{post.content}</p>
+          <h3>{post.content}</h3>
         </li>
       ))}
     </ul>

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import './LoginForm.css';
 
 const apiUrl = import.meta.env.VITE_API_URL;
 
@@ -39,7 +40,7 @@ const LoginForm = () => {
         value={password}
         onChange={(e) => setPassword(e.target.value)}
       />
-      <button type="submit">로그인</button>
+      <button class='login_btn' type="submit">로그인</button>
       {errorMessage && <p>{errorMessage}</p>}
     </form>
   );
