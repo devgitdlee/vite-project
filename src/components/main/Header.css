@@ -1,0 +1,10 @@
+.main-menu li{
+    float: left;
+    list-style: none;
+    padding: 10px;
+}
+
+.sub-menu li{
+    line-height:500%
+
+}

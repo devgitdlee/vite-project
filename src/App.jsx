@@ -3,6 +3,7 @@ import './App.css';
 import axios from 'axios';
 import ReactDOM from 'react-dom';
 import {BrowserRouter,Route,Routes,Link} from 'react-router-dom';
+import Header from './components/main/Header';
 import SignupForm from './components/SignupForm';
 import LoginForm from './components/LoginForm';
 import PostList from './page/PostList';
@@ -44,17 +45,18 @@ function App() {
   return (
     <BrowserRouter>
       <div>
+        <Header/>
         <ul>
         <li><Link to="/signup" >회원가입</Link></li>
         <li><Link to="/login" >로그인</Link></li>
         <Routes>
           <Route path='/signup' element={<SignupForm/>}></Route>
           <Route path='/login' element={<LoginForm/>}/>
+          <Route path='/foodOrder' element={<FoodOrderList/>}/>
         </Routes>
         </ul>
         <PostList posts={posts} />
         <MenuList menus={menus} />
-        <FoodOrderList />
       </div>
     </BrowserRouter>
   );
