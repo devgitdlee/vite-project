@@ -7,6 +7,7 @@ import SignupForm from './components/SignupForm';
 import LoginForm from './components/LoginForm';
 import PostList from './page/PostList';
 import MenuList from './page/menu/MenuList';
+import FoodOrderList from './page/menu/FoodOrderList';
 const apiUrl = import.meta.env.VITE_API_URL;
 function App() {
   const [count, setCount] = useState(0)
@@ -16,6 +17,7 @@ function App() {
     { id: 3, title: "햄버거"},
     { id: 4, title: "주류/음료"},
   ]);
+
   const [posts, setPosts] = useState([
     { id: 1, title: "첫 번째 포스트", content: "이것은 첫 번째 게시글입니다." },
     { id: 2, title: "두 번째 포스트", content: "이것은 두 번째 게시글입니다." },
@@ -52,6 +54,7 @@ function App() {
         </ul>
         <PostList posts={posts} />
         <MenuList menus={menus} />
+        <FoodOrderList />
       </div>
     </BrowserRouter>
   );

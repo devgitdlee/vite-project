@@ -10,7 +10,6 @@ function FoodList({ Foods }) {
             <h2>{Food.foodname}</h2>
             <h2>{Food.foodimage}</h2>
             <h2>{Food.foodprice}</h2>
-            {/* 선택할 수 있는 버튼  */}
           </li>
         ))}
       </ul>
