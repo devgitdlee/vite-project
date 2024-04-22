@@ -1,20 +1,16 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-
-const apiUrl = import.meta.env.VITE_API_URL;
-
-console.log(apiUrl)
+import consutil from '../constants'
 
 const SignupForm = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
   
-  const handleSubmit = async (e) => {
+  const signupSubmit = async (e) => {
     e.preventDefault();
-
     try {
-      await axios.post(apiUrl+'/api/users/signup', {
+      await axios.post(consutil.SIGN_UP_API, {
         email,
         password,
       });
@@ -28,21 +24,21 @@ const SignupForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <input
-        type="email"
-        placeholder="이메일"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-      />
-      <input
-        type="password"
-        placeholder="비밀번호"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-      />
-      <button type="submit">회원가입</button>
-    </form>
+      <div>
+        <input
+          type="email"
+          placeholder="이메일"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        />
+        <input
+          type="password"
+          placeholder="비밀번호"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
+        <button onClick={signupSubmit}>회원가입</button>
+      </div>
   );
 };
 

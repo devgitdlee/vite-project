@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import consutil from '../constants'
 import './LoginForm.css';
 
-const apiUrl = import.meta.env.VITE_API_URL;
+
 
 const LoginForm = () => {
   const [email, setEmail] = useState('');
@@ -13,7 +14,7 @@ const LoginForm = () => {
     e.preventDefault();
 
     try {
-      const response = await axios.post(apiUrl+'/api/users/login', {
+      const response = await axios.post(consutil.LOGIN_API, {
         email,
         password,
       });
