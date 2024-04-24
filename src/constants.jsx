@@ -5,7 +5,7 @@ export default{
     SIGN_UP_API : API_URL+'/api/users/signup',
     LOGIN_API : API_URL+'/api/users/login',
 
-    COMMON_LIST_API : API_URL+'/api/common/list?type=',
+    COMMON_LIST_API : API_URL+'/api/common/list/',
     COMMON_ADD_API : API_URL+'/api/common/add',
     COMMON_DEL_API : API_URL+'/api/common/del',
 

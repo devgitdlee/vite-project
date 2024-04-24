@@ -5,33 +5,37 @@ import './LoginForm.css';
 import CustomCombox from './combox';
 
 
-const LoginForm = () => {
+const FoodEdit = () => {
   const [foodname, setFoodname] = useState('');
   const [description, setDescription] = useState('');
   const [foodprice, setFoodprice] = useState('');
+  const [foodtype, setFoodtype] = useState('');
   const [foodimage, setFoodimage] = useState();
   const [errorMessage, setErrorMessage] = useState('');
+  
   const [common_type, setCommon_type] = useState('음식');
   const [commonvalues, setCommonvalues] = useState([]);
-
+  
   useEffect(() => {
-    axios.get(consutil.COMMON_LIST_API, {common_type})
+    axios.get(consutil.COMMON_LIST_API+common_type)
       .then(response => {
         setCommonvalues(response.data);
       })
       .catch(error => console.error('Fetching data failed', error));
   }, []);
-  console.log(commonvalues)
+  const getCommonValue = commonvalue =>{
+    setFoodtype(commonvalue);
+  }
   const foodupSubmit = async (e) => {
     e.preventDefault();
-
+    console.log(foodtype)
     try {
-      const response = await axios.post(consutil.FOOD_ADD_API, {
+      await axios.post(consutil.FOOD_ADD_API, {
         foodname,
         description,
-        selectedValue,
+        foodtype,
         foodprice,
-        foodimage,
+        //foodimage,
       });
 
       window.location.href = '/';
@@ -55,7 +59,8 @@ const LoginForm = () => {
         value={foodname}
         onChange={(e) => setFoodname(e.target.value)}
       />
-      <CustomCombox commonvalues={commonvalues}/>
+      <CustomCombox getCommonValue={getCommonValue} commonvalues={commonvalues}/>
+      
       <input
         type="text"
         placeholder="가격"
@@ -69,9 +74,9 @@ const LoginForm = () => {
         onChange={(e) => setDescription(e.target.value)}
       />
       {/* <input type="file" onChange={handleFileChange} /> */}
-      <button class='login_btn' onClick={foodupSubmit}>추가</button>
+      <button className='login_btn' onClick={foodupSubmit}>추가</button>
       </div>
   );
 };
 
-export default LoginForm;
+export default FoodEdit;
