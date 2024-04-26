@@ -13,6 +13,7 @@ export default{
     MENU_ADD_API : API_URL+'/api/menus/add',
     MENU_DEL_API : API_URL+'/api/menus/del',
 
+    FODD_TYPE_LIST_API : API_URL+'/api/food/typelist/',
     FODD_LIST_API : API_URL+'/api/food/list',
     FOOD_ADD_API : API_URL+'/api/food/add',
     FOOD_DEL_API : API_URL+'/api/food/del',

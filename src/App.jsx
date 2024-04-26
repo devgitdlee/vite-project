@@ -6,6 +6,8 @@ import {BrowserRouter,Route,Routes,Link} from 'react-router-dom';
 import Header from './components/main/Header';
 import SignupForm from './components/SignupForm';
 import LoginForm from './components/LoginForm';
+import FoodList from './components/FoodList';
+import FoodTypeList from './components/FoodTypeList';
 import PostList from './page/PostList';
 import MenuList from './page/menu/MenuList';
 import FoodOrderList from './page/menu/FoodOrderList';
@@ -26,7 +28,7 @@ function App() {
     { id: 2, title: "두 번째 포스트", content: "이것은 두 번째 게시글입니다." },
     // 추가 게시글...
   ]);
-
+  const [foodtype, setFoodtype] = useState(2)
   const [commonvalues, setCommonvalues] = useState([
     { id: 1, common_value: "메인메뉴"},
     { id: 2, common_value: "점심메뉴"},
@@ -66,8 +68,8 @@ function App() {
           <Route path='/foodOrder' element={<FoodOrderList/>}/>
         </Routes>
         </ul>
-        <PostList posts={posts} />
-        <MenuList menus={menus} />
+        <FoodTypeList foodtype={foodtype}/>
+      
       </div>
     </BrowserRouter>
   );
