@@ -15,15 +15,17 @@ const LoginForm = () => {
 
     try {
       const response = await axios.post(consutil.COMMON_ADD_API, {
-        email,
-        password,
+        commonType,
+        commonValue,
       });
 
       // 로그인 성공 시 토큰 저장 및 페이지 이동
       //localStorage.setItem('token', response.data.token);
       window.location.href = '/';
     } catch (error) {
+      console.log(error)
       setErrorMessage(error.response.data.message);
+      alert(errorMessage)
     }
   };
 
@@ -41,7 +43,7 @@ const LoginForm = () => {
         value={commonValue}
         onChange={(e) => setCommonValue(e.target.value)}
       />
-      <button class='common_btn' onclick={handleSubmit}>로그인</button>
+      <button class='common_btn' onclick={handleSubmit}>공통추가</button>
       </div>
   );
 };

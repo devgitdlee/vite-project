@@ -74,7 +74,7 @@ const FoodEdit = () => {
         onChange={(e) => setDescription(e.target.value)}
       />
       {/* <input type="file" onChange={handleFileChange} /> */}
-      <button className='login_btn' onClick={foodupSubmit}>추가</button>
+      <button className='add_btn' onClick={foodupSubmit}>추가</button>
       </div>
   );
 };

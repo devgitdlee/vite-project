@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import './Header.css'
+
+
 const items = [
     { id: 1, name: 'Home', subItems: [] },
     { id: 2, name: 'About', subItems: [{ id: 3, name: 'About Us' }, { id: 4, name: 'Contact' }] },
@@ -11,6 +13,9 @@ const Header = () => {
     const [activeItem, setActiveItem] = useState(null);
 
   return (
+    <>
+    {/* header 로고및 로그인 회원가입 Link 확인추가 */}
+
     <ul className="main-menu">
       {items.map((item) => (
         <li key={item.id} className={activeItem === item.id ? 'active' : ''}>
@@ -27,6 +32,7 @@ const Header = () => {
         </li>
       ))}
     </ul>
+    </>
   );
 };
 

@@ -2,18 +2,18 @@ import { useState,useEffect} from 'react';
 import './App.css';
 import axios from 'axios';
 import ReactDOM from 'react-dom';
-import {BrowserRouter,Route,Routes,Link} from 'react-router-dom';
+import {BrowserRouter,Link,Route,Routes} from 'react-router-dom';
 import Header from './components/main/Header';
 import SignupForm from './components/SignupForm';
 import LoginForm from './components/LoginForm';
 import FoodList from './components/FoodList';
+import FoodDetail from './components/FoodDetail';
 import FoodTypeList from './components/FoodTypeList';
 import PostList from './page/PostList';
 import MenuList from './page/menu/MenuList';
 import FoodOrderList from './page/menu/FoodOrderList';
-import CustomCombox from './components/combox';
 import FoodEdit from './components/FoodEdit';
-const apiUrl = import.meta.env.VITE_API_URL;
+
 function App() {
   const [count, setCount] = useState(0)
   const [menus, setMenus] = useState([
@@ -54,24 +54,27 @@ function App() {
   */
   
   return (
-    <BrowserRouter>
+    
       <div>
-        <Header/>
-        <CustomCombox commonvalues={commonvalues} />
-        <FoodEdit/>
-        <ul>
-        <li><Link to="/signup" >회원가입</Link></li>
-        <li><Link to="/login" >로그인</Link></li>
-        <Routes>
-          <Route path='/signup' element={<SignupForm/>}></Route>
-          <Route path='/login' element={<LoginForm/>}/>
-          <Route path='/foodOrder' element={<FoodOrderList/>}/>
-        </Routes>
-        </ul>
-        <FoodTypeList foodtype={foodtype}/>
       
+        
+        <Header />
+        <BrowserRouter>
+        <Routes>
+          {/* <Route path='/' /> */}
+
+          <Route path='/signup' element={<SignupForm/>}/>
+          <Route path='/login' element={<LoginForm/>}/>
+          
+          <Route path='/foodOrder' element={<FoodOrderList/>}/>
+
+          <Route path='/foodadd' element={<FoodEdit/>}/>
+          <Route path='/foodList' element={<FoodList/>}/>
+          <Route path='/food/:id' element={<FoodDetail/>}/>
+        </Routes>
+        </BrowserRouter>
       </div>
-    </BrowserRouter>
+    
   );
 };
 

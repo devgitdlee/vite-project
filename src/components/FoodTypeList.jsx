@@ -7,7 +7,7 @@ function FoodList(props) {
   const [foodlist, setFoodlist] = useState([]); 
 
   useEffect(() => {
-    axios.get(consutil.FODD_TYPE_LIST_API+props.foodtype)
+    axios.get(consutil.FOOD_TYPE_LIST_API+props.foodtype)
       .then(response => {
         setFoodlist(response.data);
       })
