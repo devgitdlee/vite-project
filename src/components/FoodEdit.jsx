@@ -28,17 +28,30 @@ const FoodEdit = () => {
   }
   const foodupSubmit = async (e) => {
     e.preventDefault();
-    console.log(foodtype)
-    try {
-      await axios.post(consutil.FOOD_ADD_API, {
-        foodname,
-        description,
-        foodtype,
-        foodprice,
-        //foodimage,
-      });
+    const foodData = {
+      foodname : foodname,
+      description : description,
+      foodtype : foodtype,
+      foodprice : foodprice,
+    };
+    const requestBody = new FormData();
+    const jsonFoodData = JSON.stringify(foodData)
+    //const foodinfo = new Blob([jsonFoodData], { type: 'application/json' });
 
-      window.location.href = '/';
+    
+    // console.log(foodinfo)
+    requestBody.append('foodinfo', jsonFoodData);
+    requestBody.append('file', foodimage);
+
+    try {
+
+      const response = await axios.post(consutil.FOOD_ADD_API, requestBody,{
+        headers: {
+          'Content-Type': 'multipart/form-data'
+        }
+      });
+      console.log(response)
+      //window.location.href = '/';
     } catch (error) {
       setErrorMessage(error.response.data.message);
     }
@@ -73,7 +86,7 @@ const FoodEdit = () => {
         value={description}
         onChange={(e) => setDescription(e.target.value)}
       />
-      {/* <input type="file" onChange={handleFileChange} /> */}
+      <input type="file" onChange={handleFileChange} />
       <button className='add_btn' onClick={foodupSubmit}>추가</button>
       </div>
   );

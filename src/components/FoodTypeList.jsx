@@ -2,12 +2,14 @@ import React, { useState,useEffect } from 'react';
 import axios from 'axios';
 import './FoodTypeList.css';
 import consutil from '../constants'
+import { useParams } from 'react-router-dom';
 
-function FoodList(props) {
+function FoodTypeList() {
+  const params = useParams();
   const [foodlist, setFoodlist] = useState([]); 
 
   useEffect(() => {
-    axios.get(consutil.FOOD_TYPE_LIST_API+props.foodtype)
+    axios.get(consutil.FOOD_LIST_API+params.id)
       .then(response => {
         setFoodlist(response.data);
       })
@@ -26,4 +28,4 @@ function FoodList(props) {
   );
 }
 
-export default FoodList;
+export default FoodTypeList;

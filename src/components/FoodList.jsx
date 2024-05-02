@@ -3,12 +3,11 @@ import axios from 'axios';
 import './FoodList.css';
 import consutil from '../constants'
 import {Link} from "react-router-dom";
-import FoodDetail from './FoodDetail';
 
 function FoodList() {
   const [foodlist, setFoodlist] = useState([]); 
   useEffect(() => {
-    axios.get(consutil.FOOD_LIST_API)
+    axios.get(consutil.FOOD_LIST_API+"all")
       .then(response => {
         setFoodlist(response.data);
       })

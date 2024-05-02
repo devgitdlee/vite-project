@@ -70,6 +70,7 @@ function App() {
 
           <Route path='/foodadd' element={<FoodEdit/>}/>
           <Route path='/foodList' element={<FoodList/>}/>
+          <Route path='/foodtypeList/:id' element={<FoodTypeList/>}/>
           <Route path='/food/:id' element={<FoodDetail/>}/>
         </Routes>
         </BrowserRouter>
