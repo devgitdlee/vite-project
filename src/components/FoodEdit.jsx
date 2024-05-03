@@ -26,6 +26,7 @@ const FoodEdit = () => {
   const getCommonValue = commonvalue =>{
     setFoodtype(commonvalue);
   }
+
   const foodupSubmit = async (e) => {
     e.preventDefault();
     const foodData = {
@@ -50,7 +51,6 @@ const FoodEdit = () => {
           'Content-Type': 'multipart/form-data'
         }
       });
-      console.log(response)
       //window.location.href = '/';
     } catch (error) {
       setErrorMessage(error.response.data.message);
@@ -72,7 +72,7 @@ const FoodEdit = () => {
         value={foodname}
         onChange={(e) => setFoodname(e.target.value)}
       />
-      <CustomCombox getCommonValue={getCommonValue} commonvalues={commonvalues}/>
+      <CustomCombox getCommonValue={getCommonValue} type={common_type} commonvalues={commonvalues}/>
       
       <input
         type="text"
