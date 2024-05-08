@@ -11,8 +11,9 @@ const FoodEdit = () => {
   const [foodprice, setFoodprice] = useState('');
   const [foodtype, setFoodtype] = useState('');
   const [foodimage, setFoodimage] = useState();
+  const [imgFile, setImgFile] = useState("");
   const [errorMessage, setErrorMessage] = useState('');
-  
+  const [selectedValue, setSelectedValue] = useState('');
   const [common_type, setCommon_type] = useState('음식');
   const [commonvalues, setCommonvalues] = useState([]);
   
@@ -20,6 +21,7 @@ const FoodEdit = () => {
     axios.get(consutil.COMMON_LIST_API+common_type)
       .then(response => {
         setCommonvalues(response.data);
+        setSelectedValue(response.data[0].id);
       })
       .catch(error => console.error('Fetching data failed', error));
   }, []);
@@ -59,9 +61,16 @@ const FoodEdit = () => {
 
   const handleFileChange = (event) => {
     const file = event.target.files[0];
+
     if (file) {
       setFoodimage(file);
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onloadend = () => {
+        setImgFile(reader.result);
+   	  };
     }
+    console.log(imgFile);
   };
 
   return (
@@ -72,7 +81,7 @@ const FoodEdit = () => {
         value={foodname}
         onChange={(e) => setFoodname(e.target.value)}
       />
-      <CustomCombox getCommonValue={getCommonValue} type={common_type} commonvalues={commonvalues}/>
+      <CustomCombox getCommonValue={getCommonValue} firstid={selectedValue} commonvalues={commonvalues}/>
       
       <input
         type="text"
@@ -86,7 +95,13 @@ const FoodEdit = () => {
         value={description}
         onChange={(e) => setDescription(e.target.value)}
       />
-      <input type="file" onChange={handleFileChange} />
+      <div className="imgmi">
+        <img 
+          src={imgFile ? imgFile : ''}
+          alt="프로필 이미지"
+          />
+      </div>
+      <input className="signup-profileImg-input" type="file" onChange={handleFileChange} />
       <button className='add_btn' onClick={foodupSubmit}>추가</button>
       </div>
   );

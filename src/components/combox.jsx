@@ -1,12 +1,13 @@
 import React, { useState,useEffect  } from 'react';
 function combox( props ) {
 
-  const [selectedValue, setSelectedValue] = useState(first_id);
+  const [selectedValue, setSelectedValue] = useState(props.firstid);
+
   useEffect(() => {
-    const comm_first = props.commonvalues.length  > 0 ? props.commonvalues[0] : null;
-    const first_id = comm_first ? comm_first.id : 0;
-    setSelectedValue(first_id);
-  }, []);
+    setSelectedValue(props.firstid);
+    props.getCommonValue(props.firstid);
+  });
+  
   const handleChange = (event) => {
     setSelectedValue(event.target.value);
     props.getCommonValue(event.target.value);

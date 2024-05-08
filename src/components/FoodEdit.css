@@ -3,3 +3,13 @@
     
 }
 
+
+.imgmi{
+    width: 25px;
+    height: 25px;
+    /* object-fit: cover; */
+}
+
+.form-signup input[type="file"] {
+  display: none;
+}

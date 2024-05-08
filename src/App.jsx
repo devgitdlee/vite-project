@@ -1,18 +1,15 @@
 import { useState,useEffect} from 'react';
 import './App.css';
-import axios from 'axios';
-import ReactDOM from 'react-dom';
-import {BrowserRouter,Link,Route,Routes} from 'react-router-dom';
+import {BrowserRouter,Route,Routes} from 'react-router-dom';
 import Header from './components/main/Header';
 import SignupForm from './components/SignupForm';
 import LoginForm from './components/LoginForm';
 import FoodList from './components/FoodList';
 import FoodDetail from './components/FoodDetail';
 import FoodTypeList from './components/FoodTypeList';
-import PostList from './page/PostList';
-import MenuList from './page/menu/MenuList';
 import FoodOrderList from './page/menu/FoodOrderList';
 import FoodEdit from './components/FoodEdit';
+
 
 function App() {
   const [count, setCount] = useState(0)
@@ -35,30 +32,15 @@ function App() {
     { id: 3, common_value: "햄버거"},
     { id: 4, common_value: "주류/음료"},
   ]);
-  /*
-  useEffect(() => {
-    axios.get(apiUrl+'/postList')
-      .then(response => {
-        setPosts(response.data);
-      })
-      .catch(error => console.error('Fetching data failed', error));
-  }, []);
-  
-  useEffect(() => {
-    axios.get(apiUrl+'/menuList')
-      .then(response => {
-        setMenus(response.data);
-      })
-      .catch(error => console.error('Fetching data failed', error));
-  }, []);
-  */
-  
+
+
+
   return (
     
       <div>
       
         
-        <Header />
+        <Header /> <br/><br/><br/>
         <BrowserRouter>
         <Routes>
           {/* <Route path='/' /> */}
