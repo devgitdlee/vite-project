@@ -1,7 +1,7 @@
 const API_URL = 'http://localhost:8000';
 
 export default{
-    IMAGE_URL : '/src/assets/',
+    IMAGE_URL : API_URL+'/images/',
     FILE_DOWNLOAD : API_URL+'/download/', 
 
     SIGN_UP_API : API_URL+'/api/users/signup',
