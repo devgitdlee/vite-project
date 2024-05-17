@@ -10,6 +10,8 @@ Currently, two official plugins are available:
 # npm create vite@laster
 
 npm install react-router-dom
+npm install react-redux redux
+
 
 npm run dev
 

@@ -2,6 +2,7 @@ import { useState,useEffect} from 'react';
 import './App.css';
 import {BrowserRouter,Route,Routes} from 'react-router-dom';
 import Header from './components/main/Header';
+import Main_Length from './components/main/Main_Length';
 import SignupForm from './components/SignupForm';
 import LoginForm from './components/LoginForm';
 import FoodList from './components/FoodList';
@@ -40,7 +41,8 @@ function App() {
       <div>
       
         
-        <Header /> <br/><br/><br/>
+        {/* <Header /> <br/><br/><br/> */}
+        <Main_Length />
         <BrowserRouter>
         <Routes>
           {/* <Route path='/' /> */}
