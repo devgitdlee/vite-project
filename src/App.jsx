@@ -1,5 +1,5 @@
 import { useState,useEffect} from 'react';
-import './App.css';
+// import './App.css';
 import {BrowserRouter,Route,Routes} from 'react-router-dom';
 import Header from './components/main/Header';
 import Main_Length from './components/main/Main_Length';
@@ -10,7 +10,7 @@ import FoodDetail from './components/FoodDetail';
 import FoodTypeList from './components/FoodTypeList';
 import FoodOrderList from './page/menu/FoodOrderList';
 import FoodEdit from './components/FoodEdit';
-
+import GraphComponent from './components/main/GraphComponent';
 
 function App() {
   const [count, setCount] = useState(0)
@@ -42,7 +42,7 @@ function App() {
       
         
         {/* <Header /> <br/><br/><br/> */}
-        <Main_Length />
+        <GraphComponent />
         <BrowserRouter>
         <Routes>
           {/* <Route path='/' /> */}
