@@ -1,0 +1,25 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden; /* 스크롤이 생기지 않도록 설정 */
+}
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(19, 1fr); /* 19개의 열 */
+  grid-template-rows: repeat(10, 1fr); /* 10개의 행 */
+  width: 1920px; /* 고정된 가로 크기 */
+  height: 1080px; /* 고정된 세로 크기 */
+  gap: 1px; /* 영역 사이의 간격 */
+}
+
+.area {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #ccc;
+  background-color: #f0f0f0;
+  font-size: 16px; /* 영역 내부 텍스트 크기 */
+}
